@@ -583,7 +583,8 @@ textarea.form-control.txtarea { height: 150px; }
 .form-buttons ul li.last { margin-right: 0; }
 .global-bt { margin-right: 20px; }
 .global-outer { display: block; width: 100%; }
-.global-tab td, th { padding: 5px; }
+.global-tab td, th, td { padding: 5px; }
+
 
 @media only screen and (max-width: 400px) {
 .global-outer { overflow: scroll; }
@@ -1846,3 +1847,69 @@ article.agent-details{padding-right:10px; padding-left:10px}
 .new-order .glyphicon{cursor: pointer;display: inline;float: right;margin-left: 5px;margin-right: 0;top: 9px;}
 .new-order .glyphicon:hover{opacity:.8}
 .new-order .dropdown{width:88%;display:inline-block}
+
+.navbar {
+    background: #f6f6f6;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.header-section{
+    border-bottom: 1px solid #dbdbdb;
+}
+.alert.alert-error {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+border: 0;
+background-color: rgba(192, 33, 33, .5);
+color: #753C3C;
+text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
+margin-top: 10px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.margin-top{
+    margin-top:10px;
+}
+
+.margin-bottom{
+    margin-bottom: 10px;
+}
+
+.progress{
+    border-radius: 5px;
+    margin-bottom: 0;
+    margin-top: 4px;
+    background-image: none;
+    background-color: #d7d7d7;
+}
+
+    .progress .bar {
+        background-image: none;
+        background-color: #239fdb;
+        box-shadow: 0 1px 0 rgba(255,255,255,.6), inset 0 2px 0 rgba(0,0,0,.06);
+        height: 100%;
+    }
+
+    .budget-table-home th{
+        width: 20%;
+    }
+    .budget-table-home th.budget-bar{
+        width: 40%;
+    }
+
+.left-margin {
+    margin-left: 10px;
+}
+
+    .border{
+        border: 1px solid #dbdbdb;
+    }
+
+    .selected{
+        background-color: #C0C0C0;
+    }
+

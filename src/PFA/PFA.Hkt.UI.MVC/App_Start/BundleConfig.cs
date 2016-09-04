@@ -8,6 +8,27 @@ namespace PFA.Hkt.UI.MVC
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            #region Css Bundles
+
+
+            bundles.Add(new StyleBundle("~/bundles/Style/Lib").Include(
+                        "~/Content/Lib/Bootstrap/bootstrap.css"
+                
+                        ));
+
+            //Bundle for branding style sheets
+            bundles.Add(new StyleBundle("~/bundles/Style/Branding").Include(
+                        "~/Content/Branding/brand.css"));
+
+            #endregion
+
+
+
+
+
+
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

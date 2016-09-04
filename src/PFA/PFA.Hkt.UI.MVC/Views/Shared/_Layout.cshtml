@@ -10,7 +10,6 @@
 
     <link href="~/Content/Lib/Telerik/styles/kendo.default.min.css" rel="stylesheet" type="text/css">
     <link href="~/Content/Lib/Telerik/styles/kendo.common.min.css" rel="stylesheet" type="text/css">
-
     @Styles.Render("~/bundles/Style/Lib")
     <link href="~/Content/Common/site.css" rel=" stylesheet" type="text/css">
     <link href="~/Content/Common/KendoCustom.css" rel=" stylesheet" type="text/css">
@@ -19,11 +18,18 @@
     @Styles.Render("~/bundles/Style/Branding")
     @Scripts.Render("~/bundles/Scripts/Core")
     @Scripts.Render("~/bundles/Lib/Telerik")
+
+    <!--Fushion charts-->
+    <script type="text/javascript" src="~/Content/Charts/FusionCharts.js"></script>
+    <script type="text/javascript" src="~/Content/Charts/FusionCharts.jqueryplugin.js"></script>
+    <script type="text/javascript" src="~/Scripts/Feature/Comman/alpha.chart.js"></script>
+
+    @*<script type="text/javascript" src="~/Scripts/Feature/Comman/alpha.helper.js"></script>
+    <script type="text/javascript" src="~/Scripts/Feature/Comman/alpha.grid.js"></script>*@
     @{
         
     }
    
-    @Styles.Render("~/bundles/Style/Branding")
 
 
     <style>
@@ -34,7 +40,7 @@
     </style>
 
 </head>
-<body >
+<body ng-app="iAlpha">
     <div class="navbar" role="navigation">
         <div class="container">           
                 <a class="navbar-brand" href="#"> <img src="@Url.Content("~/Content/Images/logo.png")" /></a>            
