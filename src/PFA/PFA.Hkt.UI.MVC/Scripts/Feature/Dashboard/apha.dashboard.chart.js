@@ -1,4 +1,4 @@
-﻿var app = angular.module("iAlpha", [ "ngSanitize"]);
+﻿
 $(document).ready(function () {
 
     var budgetData = [{ "label": "Income", "value": "700" }, { "label": "Expense", "value": "400" }];
