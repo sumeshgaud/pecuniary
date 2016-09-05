@@ -1,20 +1,26 @@
-﻿<div class="container"> 
-    <div class="navbar-header"> 
-    
-   
-    </div> <nav class="collapse navbar-collapse" id="bs-navbar"> 
-    <ul class="nav navbar-nav"> 
-        <li>
-            <a href="#">Home</a>
-        </li>
-    <li> 
-        <a href="#">Transaction</a> </li>
-    
-    <li class="active"> 
-        <a href="#">Budget</a> </li> 
-    <li> 
-        <a href="#">Investments</a> </li> 
-    <li> <a href="#">Setting</a> </li> 
-    
-    </ul> </nav>
+﻿<div class="container custom-menu">
+    <div class="navbar-header">
+    </div>
+    <nav class="collapse navbar-collapse navbar" id="bs-navbar">
+        <div class="navbar-inner">
+            <ul class="nav navbar-nav">
+                <li class="@(ViewBag.Menu == "Home" ? "selected" : "")">
+                    <a href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li class="@(ViewBag.Menu == "Transaction" ? "selected" : "")">
+                    <a href="@Url.Action("Index", "Transaction")">Transaction</a>
+                </li>
+
+                <li class="@(ViewBag.Menu == "Budget" ? "selected" : "")">
+                    <a href="#">Budget</a>
+                </li>
+                <li class="@(ViewBag.Menu == "Investment" ? "selected" : "")">
+                    <a href="#">Investments</a>
+                </li>
+                <li class="@(ViewBag.Menu == "Setting" ? "selected" : "")">
+                    <a href="#">Setting</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </div>

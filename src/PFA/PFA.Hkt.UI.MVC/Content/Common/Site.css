@@ -1905,11 +1905,48 @@ margin-top: 10px;
     margin-left: 10px;
 }
 
-    .border{
-        border: 1px solid #dbdbdb;
-    }
+.border {
+    border: 1px solid #dbdbdb;
+}
 
-    .selected{
-        background-color: #C0C0C0;
-    }
+.selected {
+    background-color: #C0C0C0;
+}
 
+.custom-menu{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.custom-menu .navbar{
+    background: none;
+    border-bottom: none;
+    padding-right: 0px;
+}
+
+.custom-menu .navbar .navbar-inner {
+    padding-left: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -moz-box-shadow: 0 2px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.08);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.08);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05), inset 0 -2px 0 rgba(0,0,0,.08);
+    border: 1px solid #c4c4c4;
+    background-image: none;
+    min-height: 50px;
+}
+
+.custom-menu .navbar .navbar-inner ul.nav {
+    min-height: 50px;
+}
+
+.custom-menu .navbar .navbar-inner ul.nav li {
+    min-height: 50px;
+    font-size: 1.14em;
+}
+
+    
