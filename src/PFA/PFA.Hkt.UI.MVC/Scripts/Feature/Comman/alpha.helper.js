@@ -2,7 +2,49 @@
 var iAlphaUtility = iAlphaUtility || {};
 
 iAlphaUtility.helpers = {
-    
+    pageStatus: {        
+        showFailureMessage: function (message) {
+            $('html, body').animate({ scrollTop: $('#div-page-status').position().top }, 'slow');
+            $("#div-page-status .alert-success, #div-page-status .alert-danger #div-page-status .alert-warning").hide();
+            this.clearAllMessages();
+            $("#div-page-status .alert-danger .response-message").html(message);
+            $("#div-page-status .alert-danger").show();
+            $('#div-page-status').show();
+            this.detachTimeout();
+        },
+        showSuccessMessage: function (message) {
+            $('html, body').animate({ scrollTop: $('#div-page-status').position().top }, 'slow');
+            $("#div-page-status .alert-success, #div-page-status .alert-danger #div-page-status .alert-warning").hide();
+            this.clearAllMessages();
+            $("#div-page-status .alert-success .response-message").html(message);
+            $("#div-page-status .alert-success").show();
+            $('#div-page-status').show();
+            this.attachTimeout();
+        },
+        showWarningMessage: function (message) {
+            $('html, body').animate({ scrollTop: $('#div-page-status').position().top }, 'slow');
+            $("#div-page-status .alert-success, #div-page-status .alert-danger #div-page-status .alert-warning").hide();
+            this.clearAllMessages();
+            $("#div-page-status .alert-warning .response-message").html(message);
+            $("#div-page-status .alert-warning").show();
+            $('#div-page-status').show();
+            this.detachTimeout();
+        },
+        clearAllMessages: function () {
+            $("#div-page-status .alert").hide();
+        },
+        timeoutId: null,
+        attachTimeout: function () {
+            this.detachTimeout();
+            var me = this;
+            this.timeoutId = setTimeout(function () { me.clearAllMessages(); }, 10000);
+        },
+        detachTimeout: function () {
+            if (this.timeoutId != null) {
+                clearTimeout(this.timeoutId);
+            }
+        }
+    },
     handlers: {
         // Function to restrict user from entering non numberic characters        
         customizePaginaion: function (arg, dataSource, gridId, message) {

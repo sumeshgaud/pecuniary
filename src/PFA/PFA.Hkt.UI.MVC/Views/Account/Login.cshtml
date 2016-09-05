@@ -7,25 +7,28 @@
 }
 @section scripts{
     <script type="text/javascript">
-    var ROOT = '@Url.Content("~/")';
+        var ROOT = '@Url.Content("~/")';
+        var response = {};
+        response.success = @ViewBag.success;
+        response.message = '@ViewBag.message';
     </script>
-    <script src="@Url.Content("~/Scripts/views/Login.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Feature/Login.js")" type="text/javascript"></script>
 }
 
-<div class="container theme-showcase" role="main" >
+<div class="container theme-showcase" data-ng-controller="LoginCtrl" ng-init="init()" role="main">
     <div class="page-header page-header-login">
         <h1>Content coming soon</h1>
         <p>this is also coming soon</p>
     </div>
     <div class="clearfix">
         <div class="col-sm-4 login-info-graphic">
-            
+
         </div>
         <div class="col-sm-4 login-form panel-primary">
-            
+
             <form id="loginForm" action="@Url.Content("~/Account/Login")" method="POST">
                 <div class="additional-details-filter1 additional-details-filter-login clearfix application-login">
-                    
+
                     <span id="notification"></span>
                 </div>
 
@@ -42,11 +45,6 @@
                         <div class="register-link">
                             <a href="@Url.Content("~/Account/Register")" title="Register Now">Register Now</a>
                         </div>
-                        <a id="fogotUsername"
-                           href="#fogotUsername"
-                           class="forgot-link"
-                           title="Forgot Username"
-                           ng-click="openRecoverUsername()">Forgot Username</a>
                         <a id="forgotPassword"
                            href="#forgotPassword"
                            class="forgot-link"
@@ -62,7 +60,7 @@
                     </div>
                 </div>
                 <div id="div-login-status" class="alert alert-danger" ng-hide="response.success">
-                    <span id="error-message"></span>
+                    <span id="error-message">{{response.message}}</span>
                     <button type="button" class="close" id="closeButton" ng-click="hideMessage()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 </div>
             </form>

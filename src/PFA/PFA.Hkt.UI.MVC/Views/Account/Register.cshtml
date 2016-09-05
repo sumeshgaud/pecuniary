@@ -8,7 +8,7 @@
         var response = {};
         
     </script>
-
+    <script type="text/javascript" src="~/Scripts/Feature/Register.js"></script>
 }
 @section styles{
     <style>
@@ -27,7 +27,8 @@
 
 <link href="@Url.Content("~/Content/Common/site.css")" rel="stylesheet" />
 }
-<div class="container theme-showcase" role="main" >
+<div class="container theme-showcase" role="main" data-ng-controller="RegisterCtrl" data-ng-init="init()">
+    @Html.Partial("_Status")
 
     <div class=" page-header">
         <h1>Create Your Account</h1>
@@ -43,26 +44,28 @@
                     <div class="panel panel-primary panel-form clearfix col-sm-12">
                         <p class="mandatory-fields"><span class="mandatory">*</span> - Indicates a required field</p>
                         <div class="form-group">
-                            <label >First Name: <span class="mandatory">*</span></label>
-                            <input name=""
-                                   id=""
+                            <label for="txtFirst">First Name: <span class="mandatory">*</span></label>
+                            <input name="txtFirst"
+                                   id="txtFirst"
                                    type="text"
                                    class="form-control"
-                                   ng-model=""
+                                   ng-model="registrationDetails.Firstname"
                                    required
-                                   maxlength="205">
-                            <span class="k-invalid-msg" data-for="txtEmailAddress" id="spnEmailAddress"></span>
+                                   maxlength="205"
+                                   data-required-msg="Enter firstname">
+                            <span class="k-invalid-msg" data-for="txtFirst"></span>
                         </div>
                         <div class="form-group">
-                            <label for="txtEmailAddress">Last Name: <span class="mandatory">*</span></label>
-                            <input name=""
-                                   id=""
+                            <label for="txtLast">Last Name: <span class="mandatory">*</span></label>
+                            <input name="txtLast"
+                                   id="txtLast"
                                    type="text"
                                    class="form-control"
-                                   ng-model=""
+                                   ng-model="registrationDetails.Lastname"
                                    required
-                                   maxlength="205">
-                            <span class="k-invalid-msg" data-for="txtEmailAddress" id="spnEmailAddress"></span>
+                                   maxlength="205"
+                                   data-required-msg="Enter lastname">
+                            <span class="k-invalid-msg" data-for="txtLast" ></span>
                         </div>
                         <div class="form-group">
                             <label for="txtUsername">Username: </label>
@@ -70,22 +73,23 @@
                             <input name="txtUsername"
                                    id="txtUsername"
                                    type="text"
-                                   class="form-control">
+                                   class="form-control"
+                                   ng-model="registrationDetails.Username"
+                                   maxlength="205"
+                                   required                                   
+                                   data-required-msg="Enter username">
                             <span class="k-invalid-msg" data-for="txtUsername" id="spnUsername"></span>
                         </div>
                         <div class="form-group">
                             <label for="txtEmailAddress">E-mail Address: <span class="mandatory">*</span></label>
-                            
-                                
-
-                                <input name="txtEmailAddress"
-                                       id="txtEmailAddress"
-                                       type="text"
-                                       class="form-control"
-                                       ng-model="registrationDetails.Email"
-                                       required
-                                       maxlength="205"
-                                       >
+                            <input name="txtEmailAddress"
+                                   id="txtEmailAddress"
+                                   type="text"
+                                   class="form-control"
+                                   ng-model="registrationDetails.Email"
+                                   required
+                                   maxlength="205"                                   
+                                   data-required-msg="Enter email address">
                             <span class="k-invalid-msg" data-for="txtEmailAddress" id="spnEmailAddress"></span>
                         </div>
                         <div class="form-group">
@@ -94,7 +98,11 @@
                                    id="txtPassword"
                                    type="password"
                                    class="form-control"
-                                  />
+                                   ng-model="registrationDetails.Password"
+                                   required
+                                   maxlength="20"
+                                   ng-change="validatePasswordFields()"
+                                   data-required-msg="Enter password" />
                             <span class="k-invalid-msg" data-for="txtPassword"></span>
                         </div>
                         <div class="form-group">
@@ -103,7 +111,10 @@
                                    id="txtConfirmPassword"
                                    type="password"
                                    class="form-control"
-                                   />
+                                   ng-model="registrationDetails.ConfirmPassword"
+                                   maxlength="20"
+                                   required
+                                   data-required-msg="Enter confirm password" />
                             <span class="k-invalid-msg" data-for="txtConfirmPassword"></span>
                         </div>
                         <p>
@@ -123,8 +134,7 @@
                                    id="txtAnswer1"
                                    type="text"
                                    class="form-control"
-                                   required
-                                  />
+                                   required />
                         </div>
                         <div class="form-group">
                             <label for="ddlSecQuest2">Address 3<span class="mandatory">*</span></label>
@@ -139,8 +149,7 @@
                             <input name="txtAnswer2"
                                    id="txtAnswer2"
                                    type="text"
-                                   class="form-control"
-                                   >
+                                   class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="ddlSecQuest3">Phone number<span class="mandatory">*</span></label>
@@ -155,25 +164,24 @@
                             <input name="txtAnswer3"
                                    id="txtAnswer3"
                                    type="text"
-                                   class="form-control"
-                                   >
+                                   class="form-control">
                         </div>
                         @*<div class="form-group">
-                            @Html.Captcha(5, "Captcha")
-                        </div>
-                        <div class="form-group">
-                            <input name="chkAgree"
-                                   id="chkAgree"
-                                   type="checkbox"
-                                   ng-disabled="isDisabled"
-                                   required
-                                   validationmessage="@ValidationMessage.AgreeTermsAndConditions">
-                            <label for="chkAgree"
-                                   class="lblFontWeight">
-                                &nbsp;I have read and agree to be bound by the <a href="#" data-toggle="modal" data-target="#myModalTerms">Terms and Conditions</a> and <a href="#" data-toggle="modal" data-target="#myModalPrivacy" title="Privacy Policy">Privacy Policy</a>.
-                                <br /><span class="k-invalid-msg" data-for="chkAgree"></span>
-                            </label>
-                        </div>*@
+                                @Html.Captcha(5, "Captcha")
+                            </div>
+                            <div class="form-group">
+                                <input name="chkAgree"
+                                       id="chkAgree"
+                                       type="checkbox"
+                                       ng-disabled="isDisabled"
+                                       required
+                                       >
+                                <label for="chkAgree"
+                                       class="lblFontWeight">
+                                    &nbsp;I have read and agree to be bound by the <a href="#" data-toggle="modal" data-target="#myModalTerms">Terms and Conditions</a> and <a href="#" data-toggle="modal" data-target="#myModalPrivacy" title="Privacy Policy">Privacy Policy</a>.
+                                    <br /><span class="k-invalid-msg" data-for="chkAgree"></span>
+                                </label>
+                            </div>*@
                     </div>
 
                     <div class="panel panel-primary col-sm-12">
